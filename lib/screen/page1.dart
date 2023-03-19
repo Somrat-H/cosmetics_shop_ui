@@ -20,17 +20,22 @@ class GetStartedPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: Container(
-              height:   MediaQuery.of(context).size.height * .08,
-              width: MediaQuery.of(context).size.height * .25,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
+            child: InkWell(
+              onTap: (){
+                
+              },
+              child: Container(
+                height:   MediaQuery.of(context).size.height * .08,
+                width: MediaQuery.of(context).size.height * .25,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                 child: const Center(child: Text('Get Started', style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                 ),)),
               ),
-               child: const Center(child: Text('Get Started', style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-               ),)),
             ),
           )
         ],),
