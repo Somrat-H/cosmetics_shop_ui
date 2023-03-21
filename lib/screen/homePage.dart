@@ -10,6 +10,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(height: 100,
+          width: double.infinity,
+          decoration: BoxDecoration(color: Color.fromRGBO(23, 24, 33, 1),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(10))
+          ),
+          ),
+        ],
+      ),
+    );
   }
 }

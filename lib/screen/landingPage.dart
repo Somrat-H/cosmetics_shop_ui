@@ -1,3 +1,4 @@
+import 'package:cosmetics_shop_ui/screen/homePage.dart';
 import 'package:flutter/material.dart';
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -24,17 +25,21 @@ class GetStartedPage extends StatelessWidget {
               onTap: (){
                 
               },
-              child: Container(
-                height:   MediaQuery.of(context).size.height * .08,
-                width: MediaQuery.of(context).size.height * .25,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));},
+                child: Container(
+                  height:   MediaQuery.of(context).size.height * .08,
+                  width: MediaQuery.of(context).size.height * .25,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                   child: const Center(child: Text('Get Started', style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                   ),)),
                 ),
-                 child: const Center(child: Text('Get Started', style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                 ),)),
               ),
             ),
           )
