@@ -1,4 +1,4 @@
-import 'package:cosmetics_shop_ui/screen/page1.dart';
+import 'package:cosmetics_shop_ui/screen/landingPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
