@@ -1,4 +1,3 @@
-import 'package:cosmetics_shop_ui/screen/homePage.dart';
 import 'package:cosmetics_shop_ui/screen/landingPage.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +11,9 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: GetStartedPage(),
     );
   }
 }

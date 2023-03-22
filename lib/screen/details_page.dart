@@ -16,17 +16,22 @@ class DeatilsPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(50)
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: Icon(Icons.arrow_back_ios, color: Colors.black,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black26),
+                        borderRadius: BorderRadius.circular(50)
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Icon(Icons.arrow_back_ios, color: Colors.black,),
+                      ),
                     ),
                   ),
                   const Text('Catalouge', style: TextStyle(

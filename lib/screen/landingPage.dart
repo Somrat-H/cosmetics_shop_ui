@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 import 'package:cosmetics_shop_ui/screen/details_page.dart';
+import 'package:cosmetics_shop_ui/screen/home_page.dart';
 import 'package:cosmetics_shop_ui/server.dart';
-=======
-import 'package:cosmetics_shop_ui/screen/homePage.dart';
->>>>>>> 008ec98ef06ce05ddfea0df93df99a1dd1d7df01
 import 'package:flutter/material.dart';
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -11,7 +9,7 @@ class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(23, 24, 33, 1),
+      backgroundColor: const Color.fromRGBO(23, 24, 33, 1),
       body: SafeArea(
         child: Column(children: [
           Container(
@@ -32,7 +30,7 @@ class GetStartedPage extends StatelessWidget {
               },
               child: GestureDetector(
                 onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));},
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomePage()));},
                 child: Container(
                   height:   MediaQuery.of(context).size.height * .08,
                   width: MediaQuery.of(context).size.height * .25,

@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
@@ -7,8 +8,8 @@ class CustomAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150,
-      decoration: BoxDecoration(
+      height: 180,
+      decoration: const BoxDecoration(
           color: Color.fromRGBO(23, 24, 33, 1),
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),
@@ -16,40 +17,41 @@ class CustomAppbar extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            leading: CircleAvatar(
+            leading: const CircleAvatar(
               backgroundImage: AssetImage(
                 "assets/model4.jpg",
               ),
             ),
             title: Row(
-              children: [
-                Text("Hello,Rima  ",
+              children: const[
+                 Text("Hello,Rima  ",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w500)),
-                Icon(
+                 Icon(
                   Icons.waving_hand,
                   color: Colors.yellow,
                 )
               ],
             ),
-            subtitle: Text(
+            subtitle:  const Text(
               "Let's choose a look",
               style: TextStyle(color: Colors.grey),
             ),
             trailing: Container(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
                         color: Colors.grey, style: BorderStyle.solid)),
-                child: Icon(
+                child: const Icon(
                   Icons.notifications_outlined,
                   color: Colors.grey,
                 )),
           ),
+          const SizedBox(height: 15,),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             height: 50,
             decoration: BoxDecoration(
                 color: Colors.grey.shade700,
@@ -58,6 +60,7 @@ class CustomAppbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
+                  // ignore: sort_child_properties_last
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
