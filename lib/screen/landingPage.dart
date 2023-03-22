@@ -1,3 +1,5 @@
+import 'package:cosmetics_shop_ui/screen/details_page.dart';
+import 'package:cosmetics_shop_ui/server.dart';
 import 'package:flutter/material.dart';
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -22,7 +24,7 @@ class GetStartedPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10),
             child: InkWell(
               onTap: (){
-                
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DeatilsPage(image: model,)));
               },
               child: Container(
                 height:   MediaQuery.of(context).size.height * .08,
