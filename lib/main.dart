@@ -1,3 +1,4 @@
+import 'package:cosmetics_shop_ui/screen/homePage.dart';
 import 'package:cosmetics_shop_ui/screen/landingPage.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: GetStartedPage(),
+      home: HomePage(),
     );
   }
 }
