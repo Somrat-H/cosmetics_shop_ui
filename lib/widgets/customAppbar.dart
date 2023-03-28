@@ -8,7 +8,7 @@ class CustomAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 180,
+      height: 150,
       decoration: const BoxDecoration(
           color: Color.fromRGBO(23, 24, 33, 1),
           borderRadius: BorderRadius.vertical(

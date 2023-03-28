@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cosmetics_shop_ui/screen/details_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late PageController _pageController =
+      PageController(initialPage: _currentPage, viewportFraction: 0.7,keepPage: true);
+  int _currentPage = 0;
+  @override
+  void initState() {
+    _pageController;
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,75 +35,129 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 15),
             customRow("Catagory"),
             const SizedBox(height: 10),
-      
-            SizedBox(height: 200,
-            width: 400,
-            child: ListView.builder(
-      
-              shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: model.length,
-                itemBuilder: (context,index)=>InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> DeatilsPage(image: model)));
-                  },
-                  child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+            Expanded(
+           flex: 5,
+             // width: 400,
+              child: PageView.builder(
+                  physics: ScrollPhysics(),
+                  controller: _pageController,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: model.length,
+                  itemBuilder: (context, index) => AnimatedBuilder(
+                      animation: _pageController,
+                      builder: (context, child) {
+                        double value = 0.0;
+                        if (_pageController.position.haveDimensions) {
+                          value =
+                              index.toDouble() - (_pageController.page ?? 0);
+                          value = (value * 0.038).clamp(-1, 1);
+                          print("value $value index $index");
+                        }
+                        return Transform.rotate(
+                          angle: pi * value,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DeatilsPage(image: model)));
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.symmetric(horizontal: 15),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          model[index],
+                                      ),
+                                      fit: BoxFit.cover,alignment: Alignment.center),
+                                 ),
                             ),
-                            child: Image.asset(model[index],width: 400,fit: BoxFit.cover,),
                           ),
-                )),),
-            const SizedBox(height: 25),
+                        );
+                      })),
+            ),
+            const SizedBox(height: 10),
+
             customRow("Product Catagory"),
             const SizedBox(height: 10),
-            SizedBox(
-              height: 130,
-              child:    ListView.builder(
+            Expanded(
+              flex: 2,
+              child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: catagory.length,
-                  itemBuilder: (context,index)=>InkWell(
-                    onTap: () {
-                      if(index==0){ Navigator.push(context, MaterialPageRoute(builder: (context)=> DeatilsPage(image: foundation)));}
-                      if(index==1){ Navigator.push(context, MaterialPageRoute(builder: (context)=> DeatilsPage(image: lipstick)));}
-                      if(index==2){ Navigator.push(context, MaterialPageRoute(builder: (context)=> DeatilsPage(image: eyeshadow)));}
-                      if(index==3){ Navigator.push(context, MaterialPageRoute(builder: (context)=> DeatilsPage(image: maskara)));}
-                     
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.only(left: 10),
-                      height: 100,
-                      width: 100,
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            child: Image.asset(items[index],fit: BoxFit.cover,height: 80,),
+                  itemBuilder: (context, index) => InkWell(
+                        onTap: () {
+                          if (index == 0) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DeatilsPage(image: foundation)));
+                          }
+                          if (index == 1) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DeatilsPage(image: lipstick)));
+                          }
+                          if (index == 2) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DeatilsPage(image: eyeshadow)));
+                          }
+                          if (index == 3) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DeatilsPage(image: maskara)));
+                          }
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          height: 100,
+                          width: 100,
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                child: Image.asset(
+                                  items[index],
+                                  fit: BoxFit.cover,
+                                  height: 80,
+                                ),
+                              ),
+                              Text(
+                                catagory[index],
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
                           ),
-                          Text(catagory[index],style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
-                        ],
-                      ),
-                    ),
-                  ))
-              ,),
-      
+                        ),
+                      )),
+            ),
           ],
         ),
       ),
-      
- 
-      
       bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
-          items: const[
-         BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-         BottomNavigationBarItem(icon: Icon(Icons.shopping_bag),label: "Home"),
-         BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-         BottomNavigationBarItem(icon: Icon(Icons.favorite),label: "Home"),
-
-      ]),
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Home"),
+          ]),
     );
   }
 }
