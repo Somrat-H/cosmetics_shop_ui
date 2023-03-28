@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-// ignore: must_be_immutable
-class DeatilsPage extends StatelessWidget {
+
+class DetailsPage extends StatelessWidget {
   List<String> image;
-  DeatilsPage({super.key,required this.image});
+  DetailsPage({super.key,required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,7 @@ class DeatilsPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(image: AssetImage(image[index]), fit: BoxFit.fill),
+                        image: DecorationImage(image: AssetImage(image[index]), fit: BoxFit.cover),
                       ),
                     );
                 })),

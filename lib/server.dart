@@ -26,16 +26,21 @@ List<String> maskara=[
   "assets/maskara2.jpg",
 ];
 
+
 List<String> items=[
   "assets/foundation1.jpg",
   "assets/lipstic1.jpg",
+  "assets/eyeshadow1.jpg",
   "assets/maskara1.jpg",
-  "assets/maskara2.jpg",
+
+
 ];
 List<String> catagory=[
-  "foundation",
-  "maskara",
-  "eyeshadow",
-  "eyeshadow"
+  "Foundation",
+  "Lipstick",
+  "Eyeshadow",
+  "Maskara",
+
+
 
 ];

@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          DeatilsPage(image: model)));
+                                          DetailsPage(image: model)));
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -97,28 +97,28 @@ class _HomePageState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        DeatilsPage(image: foundation)));
+                                        DetailsPage(image: foundation)));
                           }
                           if (index == 1) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        DeatilsPage(image: lipstick)));
+                                        DetailsPage(image: lipstick)));
                           }
                           if (index == 2) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        DeatilsPage(image: eyeshadow)));
+                                        DetailsPage(image: eyeshadow)));
                           }
                           if (index == 3) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        DeatilsPage(image: maskara)));
+                                        DetailsPage(image: maskara)));
                           }
                         },
                         child: Container(
@@ -128,6 +128,7 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             children: [
                               ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
                                 child: Image.asset(
                                   items[index],
                                   fit: BoxFit.cover,

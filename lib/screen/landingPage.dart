@@ -26,7 +26,7 @@ class GetStartedPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10),
             child: InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => DeatilsPage(image: model,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(image: model,)));
               },
               child: GestureDetector(
                 onTap: (){
